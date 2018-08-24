@@ -1,14 +1,16 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 .quote-machine {
     margin: 20px auto;
     border: 1px solid red;
+    border-radius: 4px;
     padding: 20px;
     width: max-content;
+    max-width: 60%;
 }
 
 .header {
@@ -17,25 +19,43 @@ body {
 
 .title {
     text-align: center;
+    font-size: 28px;
+    /* margin: 0; */
+    line-height: 32px;
+    font-weight: 300;
 }
 
 #quote-box {
     border: 1px dotted blue;
+    border-radius: 4px;
+    padding: 20px;
 }
 
 #text {
-    text-align: center;
+    text-align: left;
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 500;
 }
 
-
 #author {
-    text-align: center;
+    text-align: right;
+    font-weight: 400;
 }
 
 #new-quote {
-    display: inline-block;
+    display: block;
+    margin: auto;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 8px;
 }
 
 #tweet-quote {
-    display: inline-block;
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 8px;
 }
