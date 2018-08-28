@@ -51,7 +51,7 @@ class QuoteMachine extends Component {
             return (
                 <div className="quote-machine">
                     <header className="header">
-                        <h1 className="title">Design Quote Machine</h1>
+                        <h1 className="title">Quotes On Design</h1>
                     </header>
                     <main>
                         <QuoteBox

@@ -1,61 +1,87 @@
+:root {
+    --white-color: #FFFFFF;
+    --teal-color: #28E3C0;
+    --royal-blue-color: #2848FB;
+    --purps-color: #260D7E;
+}
+
+html {
+    font-size: 100%; /* 16px is default for most browsers */
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400; /* Regular */
 }
 
 .quote-machine {
-    margin: 20px auto;
-    border: 1px solid red;
-    border-radius: 4px;
-    padding: 20px;
-    width: max-content;
-    max-width: 60%;
+    background-color: var(--royal-blue-color);
+    margin: auto;
 }
 
-.header {
-
+h1 {
+    font-size: 2rem; /* 32px */
+    font-weight: 300; /* Light */
+    color: var(--white-color);
 }
 
-.title {
-    text-align: center;
-    font-size: 28px;
-    /* margin: 0; */
-    line-height: 32px;
-    font-weight: 300;
+h2,
+.currentQuote {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 2rem; /* 32px */
+    font-weight: 400; /* Regular */
+    font-style: italic;
+    color: var(--white-color);
+}
+
+h3,
+.currentAuthor {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 400; /* Regular */
+    color: var(--teal-color);
+}
+
+.history-quote {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.25rem; /* 20px */
+    font-weight: 300; /* Light */
+}
+
+.button {
+    font-size: 0.75rem; /* 12px */
+    text-transform: uppercase;
+    width: 104px;
+    height: 24px;
+}
+
+.card {
 }
 
 #quote-box {
     border: 1px dotted blue;
-    border-radius: 4px;
-    padding: 20px;
-}
-
-#text {
-    text-align: left;
-    font-style: italic;
-    font-size: 30px;
-    font-weight: 500;
+    /* border-radius: 4px;
+    padding: 20px; */
 }
 
 #author {
-    text-align: right;
-    font-weight: 400;
 }
 
-#new-quote {
-    display: block;
-    margin: auto;
-    font-size: 16px;
-    font-weight: 300;
-    padding: 8px;
+.new-quote-button {
+    color: var(--white-color);
+    background-color: var(--teal-color);
+    border: 1px solid var(--white-color);
+    border-radius: 2px;
 }
 
-#tweet-quote {
-    display: block;
-    text-align: center;
-    margin: auto;
-    font-size: 16px;
-    font-weight: 300;
-    padding: 8px;
+.tweet-quote-button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: var(--royal-blue-color);
+    border: 1px solid var(--white-color);
+    padding: 1px 7px 2px;
+    border-radius: 2px;
+
 }
