@@ -2,7 +2,7 @@
   "name": "random-quote-machine",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pseudospencer.github.io/random-quote-machine",
+  "homepage": "https://pseudospencer.github.io/react-design-quotes",
   "dependencies": {
     "he": "^1.1.1",
     "jquery": "^3.3.1",
