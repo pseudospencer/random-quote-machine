@@ -4,15 +4,17 @@ import QuoteAuthor from './QuoteAuthorComponent';
 import NewQuote from './NewQuoteComponent';
 import TweetQuote from './TweetQuoteComponent';
 
-// Presentational component.
+// Presentational component. Used for Current Quote in the hero
 
 function QuoteBox(props) {
     return (
         <div id="quote-box">
-            <QuoteText quote={props.quote}/>
-            <QuoteAuthor author={props.author}/>
-            <NewQuote getQuote={props.getQuote}/>
-            <TweetQuote quote={props.quote}/>
+            <QuoteText className="current-quote" quote={props.quote}/>
+            <QuoteAuthor className="current-author" author={props.author}/>
+            <div className="button-row-container">
+                <TweetQuote classes="tweet-quote-button-dark" quote={props.quote}/>
+                <NewQuote getQuote={props.getQuote}/>
+            </div>
         </div>
     );
 }

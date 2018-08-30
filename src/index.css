@@ -2,70 +2,230 @@
     --white-color: #FFFFFF;
     --teal-color: #28E3C0;
     --royal-blue-color: #2848FB;
+    --transparent-royal-blue-color: rgba(40, 72, 251, 0.4);
     --purps-color: #260D7E;
+    --box-shadow-offset: 3px;
+    --max-width: 1200px;
 }
 
 html {
     font-size: 100%; /* 16px is default for most browsers */
+    height: 100%;
 }
 
+/* Format sections */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 400; /* Regular */
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400; /* Regular */
 }
 
 .quote-machine {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    flex: none;
+}
+
+/* Some basic styling */
+p {
+    margin: 0;
+    color: var(--white-color);
+}
+
+a {
+    color: var(--teal-color);
+}
+
+/* Header section stuff */
+#hero {
+    margin: 0;
+    width: 100%;
     background-color: var(--royal-blue-color);
-    margin: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    width: 80%;
+    padding: 1rem;
+    max-width: var(--max-width);
 }
 
 h1 {
     font-size: 2rem; /* 32px */
     font-weight: 300; /* Light */
     color: var(--white-color);
+    margin: 0;
+    padding: 1rem 0;
+    text-decoration: underline var(--teal-color);
 }
 
-h2,
-.currentQuote {
+.current-quote {
     font-family: 'IBM Plex Serif', serif;
     font-size: 2rem; /* 32px */
     font-weight: 400; /* Regular */
     font-style: italic;
+    line-height: 2.5rem;
     color: var(--white-color);
+    margin: 2rem 0 0 0;
+    padding: 1rem 0;
 }
 
-h3,
-.currentAuthor {
+.current-author {
     font-size: 1.25rem; /* 20px */
     font-weight: 400; /* Regular */
+    line-height: 1.5rem;
     color: var(--teal-color);
+    margin: 0;
+    padding: 1rem 0;
 }
 
-.history-quote {
+/* Main section stuff */
+#history {
+    margin: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    padding-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.history-container {
+    width: 80%;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: var(--max-width);
+}
+
+.quote-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(100%/2 - 1rem - 1px);
+    margin: 2rem .5rem 0 .5rem;
+    background-color: var(--white-color);
+    border: 1px solid var(--royal-blue-color);
+    box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--transparent-royal-blue-color);
+    border-radius: 2px;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.quote-card:hover {
+    background-color: var(--royal-blue-color);
+    border: 1px solid var(--royal-blue-color);
+    box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
+}
+
+@media (max-width: 600px) {
+    .quote-card {
+        width: 100%;
+    }
+}
+
+.vertical-spacer {
+    margin-top: auto;
+}
+
+.history-quote-light {
+    color: var(--royal-blue-color);
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem; /* 20px */
+    line-height: 1.6rem; /* 32px */
     font-weight: 300; /* Light */
+}
+
+.history-quote-dark {
+    color: var(--white-color);
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.6rem; /* 32px */
+    font-weight: 300; /* Light */
+}
+
+.history-author-light {
+    color: var(--royal-blue-color);
+    font-weight: 300; /* Light */
+    padding: 1rem 0 0 0;
+}
+
+.history-author-dark {
+    color: var(--teal-color);
+    font-weight: 300; /* Light */
+    padding: 1rem 0 0 0;
+}
+
+/* Footer section stuff */
+#footer {
+    margin: 0;
+    margin-top: auto;
+    width: 100%;
+    background-color: var(--royal-blue-color);
+    padding: 1rem;
+}
+
+.footer-container {
+    margin: auto;
+    width: 80%;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: var(--max-width);
+}
+
+.footer-row-container {
+    width: calc(100%/2 - 1rem);
+    padding: 0 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .footer-row-container {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+}
+
+.footer-container a {
+    display: inline;
+    margin-right: 1rem;
+}
+
+/* Button stuff */
+.button-row-container {
+    bottom: 1rem;
+    margin: 1rem -1rem 0 0;
 }
 
 .button {
     font-size: 0.75rem; /* 12px */
     text-transform: uppercase;
-    width: 104px;
-    height: 24px;
+    width: 6.5rem;
+    height: 1.5rem;
+    margin-right: 2rem;
 }
 
-.card {
-}
-
-#quote-box {
-    border: 1px dotted blue;
-    /* border-radius: 4px;
-    padding: 20px; */
-}
-
-#author {
+.button:focus {
+    outline: none;
 }
 
 .new-quote-button {
@@ -75,13 +235,40 @@ h3,
     border-radius: 2px;
 }
 
-.tweet-quote-button {
+.new-quote-button:hover {
+    box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
+}
+
+.tweet-quote-button-light {
+    vertical-align: top;
+    line-height: 24px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--royal-blue-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--royal-blue-color);
+    border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.tweet-quote-button-dark {
+    vertical-align: top;
+    line-height: 24px;
+    text-align: center;
     display: inline-block;
     text-decoration: none;
     color: var(--white-color);
     background-color: var(--royal-blue-color);
     border: 1px solid var(--white-color);
-    padding: 1px 7px 2px;
     border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
 
+.tweet-quote-button-dark:hover {
+    box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
 }

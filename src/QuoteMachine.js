@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import QuoteBox from './QuoteBoxComponent';
+import QuoteCard from './QuoteCardComponent';
 import he from "he";
 
 class QuoteMachine extends Component {
@@ -10,6 +11,7 @@ class QuoteMachine extends Component {
             quoteIsLoaded: false,
             currentQuote: null,
             currentAuthor: null,
+            history: [],
         };
         this.fetchQuote=this.fetchQuote.bind(this);
     }
@@ -21,15 +23,32 @@ class QuoteMachine extends Component {
             .then(
                 result => {
                     result = result.shift();
-                    let rawQuote = result.content.replace(/<(?:.|\n)*?>/gm, '').trim();
-                    let quote = he.decode(rawQuote);
-                    let rawAuthor = result.title;
-                    let author = he.decode(rawAuthor);
-                    this.setState({
-                        quoteIsLoaded: true,
-                        currentAuthor: author,
-                        currentQuote: quote,
-                    });
+                    const rawQuote = result.content.replace(/<(?:.|\n)*?>/gm, '').trim();
+                    const quote = he.decode(rawQuote);
+                    const rawAuthor = result.title;
+                    const author = he.decode(rawAuthor);
+
+                    if (this.state.currentQuote && this.state.currentAuthor) {
+                        const oldQuote = this.state.currentQuote;
+                        const oldAuthor = this.state.currentAuthor;
+                        const history = this.state.history;
+                        this.setState({
+                            quoteIsLoaded: true,
+                            currentAuthor: author,
+                            currentQuote: quote,
+                            history: [...history, {
+                                quote: oldQuote,
+                                author: oldAuthor,
+                            }],
+                        });
+                    } else {
+                        this.setState({
+                            quoteIsLoaded: true,
+                            currentAuthor: author,
+                            currentQuote: quote,
+                        });
+                    }
+
                 },
                 (error) => {
                     this.setState({
@@ -48,18 +67,49 @@ class QuoteMachine extends Component {
         } else if (!this.state.quoteIsLoaded) {
             return <div>Loading...</div>
         } else {
+            
+            const reverseHistory = this.state.history.slice().reverse();
+            const historyQuotes = reverseHistory.map( item => {
+                return(
+                    <QuoteCard
+                        key={item}
+                        quote={item.quote}
+                        author={item.author}
+                    />
+                )
+            });
+
             return (
                 <div className="quote-machine">
-                    <header className="header">
-                        <h1 className="title">Quotes On Design</h1>
-                    </header>
                     <main>
-                        <QuoteBox
-                            quote={this.state.currentQuote}
-                            author={this.state.currentAuthor}
-                            getQuote={this.fetchQuote}
-                        />
+                        <section id="hero">
+                            <div className="hero-container">
+                                <h1 className="title">Quotes On Design</h1>
+                                <QuoteBox
+                                    quote={this.state.currentQuote}
+                                    author={this.state.currentAuthor}
+                                    getQuote={this.fetchQuote}
+                                />
+                            </div>
+                        </section>
+                        <section id="history">
+                            <div className="history-container">
+                                {historyQuotes}
+                            </div>
+                        </section>
                     </main>
+                    <footer id="footer">
+                        <div className="footer-container">
+                            <div className="footer-row-container">
+                                <p>Designed and built by Spencer James in 2018.</p>
+                            </div>
+                            <div className="footer-row-container">
+                                <p><a href="https://github.com/pseudospencer" target="_blank">GitHub</a>
+                                <a href="https://spencerleejames.com" target="_blank">UX Portfolio</a>
+                                <a href="https://www.linkedin.com/in/spencerleejames/" target="_blank">LinkedIn</a></p>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
             );
         }

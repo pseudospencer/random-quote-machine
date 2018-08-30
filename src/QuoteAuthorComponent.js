@@ -5,7 +5,7 @@ import React from 'react';
 function QuoteAuthor(props) {
     return (
         <div id="author">
-            <h3>– {props.author}</h3>
+            <p className={props.className}>– {props.author}</p>
         </div>
     );
 }

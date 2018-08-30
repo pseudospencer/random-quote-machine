@@ -3,7 +3,7 @@ import React from 'react';
 function QuoteText(props) {
     return (
         <div id="text">
-            <h2>{props.quote}</h2>
+            <p className={props.className}>{props.quote}</p>
         </div>
     );
 }
