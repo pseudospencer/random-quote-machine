@@ -48,7 +48,6 @@ a {
 /* Header section stuff */
 #hero {
     margin: 0;
-    width: 100%;
     background-color: var(--royal-blue-color);
     padding: 1rem;
     display: flex;
@@ -77,7 +76,7 @@ h1 {
     font-size: 2rem; /* 32px */
     font-weight: 400; /* Regular */
     font-style: italic;
-    line-height: 2.5rem;
+    line-height: 1.6;
     color: var(--white-color);
     margin: 2rem 0 0 0;
     padding: 1rem 0;
@@ -86,7 +85,7 @@ h1 {
 .current-author {
     font-size: 1.25rem; /* 20px */
     font-weight: 400; /* Regular */
-    line-height: 1.5rem;
+    line-height: 1.6;
     color: var(--teal-color);
     margin: 0;
     padding: 1rem 0;
@@ -95,7 +94,6 @@ h1 {
 /* Main section stuff */
 #history {
     margin: 0;
-    width: 100%;
     background-color: var(--white-color);
     padding-bottom: 2rem;
     display: flex;
@@ -145,7 +143,7 @@ h1 {
     color: var(--royal-blue-color);
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem; /* 20px */
-    line-height: 1.6rem; /* 32px */
+    line-height: 1.6;
     font-weight: 300; /* Light */
 }
 
@@ -153,19 +151,21 @@ h1 {
     color: var(--white-color);
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem; /* 20px */
-    line-height: 1.6rem; /* 32px */
+    line-height: 1.6;
     font-weight: 300; /* Light */
 }
 
 .history-author-light {
     color: var(--royal-blue-color);
     font-weight: 300; /* Light */
+    line-height: 1.6;
     padding: 1rem 0 0 0;
 }
 
 .history-author-dark {
     color: var(--teal-color);
     font-weight: 300; /* Light */
+    line-height: 1.6;
     padding: 1rem 0 0 0;
 }
 
@@ -173,7 +173,6 @@ h1 {
 #footer {
     margin: 0;
     margin-top: auto;
-    width: 100%;
     background-color: var(--royal-blue-color);
     padding: 1rem;
 }
