@@ -42,6 +42,7 @@ class QuoteCard extends Component {
                     <TweetQuote
                         classes={"tweet-quote-button-" + modifier}
                         quote={this.props.quote}
+                        author={this.props.author}
                     />
                 </div>
             </div>
