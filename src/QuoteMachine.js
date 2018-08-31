@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuoteBox from './QuoteBoxComponent';
 import QuoteCard from './QuoteCardComponent';
+import Footer from './FooterComponent';
 import he from "he";
 
 class QuoteMachine extends Component {
@@ -63,11 +64,35 @@ class QuoteMachine extends Component {
     }
     render() {
         if (this.state.error) {
-            return <div>Error: {this.state.error.message}</div>
-        } else if (!this.state.quoteIsLoaded) {
-            return <div>Loading...</div>
+            return (
+                <div className="quote-machine">
+                    <main>
+                        <section id="hero">
+                            <div className="hero-container">
+                                <h1 className="title">Quotes On Design</h1>
+                                <div className="current-quote">Failed to fetch pithy quote... Are you connected to the internet?</div>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            )
+        } else if (this.state.quoteIsLoaded == false) {
+            return (
+                <div className="quote-machine">
+                    <main>
+                        <section id="hero">
+                            <div className="hero-container">
+                                <h1 className="title">Quotes On Design</h1>
+                                <div className="current-quote">Fetching pithy quote...</div>
+                            </div>
+                        </section>
+                    </main>
+                    <Footer />
+                </div>
+            )
         } else {
-            
+
             const reverseHistory = this.state.history.slice().reverse();
             const historyQuotes = reverseHistory.map( item => {
                 return(
@@ -92,24 +117,15 @@ class QuoteMachine extends Component {
                                 />
                             </div>
                         </section>
-                        <section id="history">
+                        { reverseHistory.length > 0 &&
+                            <section id="history">
                             <div className="history-container">
                                 {historyQuotes}
                             </div>
                         </section>
+                        }
                     </main>
-                    <footer id="footer">
-                        <div className="footer-container">
-                            <div className="footer-row-container">
-                                <p>Designed and built by Spencer James in 2018.</p>
-                            </div>
-                            <div className="footer-row-container">
-                                <p><a href="https://github.com/pseudospencer" target="_blank">GitHub</a>
-                                <a href="https://spencerleejames.com" target="_blank">UX Portfolio</a>
-                                <a href="https://www.linkedin.com/in/spencerleejames/" target="_blank">LinkedIn</a></p>
-                            </div>
-                        </div>
-                    </footer>
+                    <Footer />
                 </div>
             );
         }
