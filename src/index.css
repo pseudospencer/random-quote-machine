@@ -130,11 +130,12 @@ h1 {
     border-radius: 2px;
     padding: 1rem;
     box-sizing: border-box;
+    transition: box-shadow 0.2s ease-out,
+                background-color 0.2s ease-out;
 }
 
 .quote-card:hover {
     background-color: var(--royal-blue-color);
-    border: 1px solid var(--royal-blue-color);
     box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
 }
 
@@ -148,34 +149,29 @@ h1 {
     margin-top: auto;
 }
 
-.history-quote-light {
+.history-quote {
     color: var(--royal-blue-color);
     font-family: 'IBM Plex Serif', serif;
     font-size: 1.25rem; /* 20px */
     line-height: 1.6;
     font-weight: 300; /* Light */
+    transition: color 0.2s ease-out;
 }
 
-.history-quote-dark {
+.history-quote.dark {
     color: var(--white-color);
-    font-family: 'IBM Plex Serif', serif;
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.6;
-    font-weight: 300; /* Light */
 }
 
-.history-author-light {
+.history-author {
     color: var(--royal-blue-color);
     font-weight: 300; /* Light */
     line-height: 1.6;
     padding: 1rem 0 0 0;
 }
 
-.history-author-dark {
+.history-author.dark {
     color: var(--teal-color);
-    font-weight: 300; /* Light */
-    line-height: 1.6;
-    padding: 1rem 0 0 0;
+    transition: color 0.2s ease-out;
 }
 
 /* Footer section stuff */
@@ -242,13 +238,14 @@ h1 {
     background-color: var(--teal-color);
     border: 1px solid var(--white-color);
     border-radius: 2px;
+    transition: box-shadow 0.2s ease-out;
 }
 
 .new-quote-button:hover {
     box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
 }
 
-.tweet-quote-button-light {
+.tweet-quote-button {
     vertical-align: top;
     line-height: 24px;
     text-align: center;
@@ -259,25 +256,17 @@ h1 {
     border: 1px solid var(--royal-blue-color);
     border-radius: 2px;
     box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    transition: box-shadow 0.2s ease-out,
+                color 0.2s ease-out,
+                background-color 0.2s ease-out;
 }
 
-.tweet-quote-button-dark {
-    vertical-align: top;
-    line-height: 24px;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
+.tweet-quote-button.dark {
     color: var(--white-color);
     background-color: var(--royal-blue-color);
     border: 1px solid var(--white-color);
-    border-radius: 2px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 
-.tweet-quote-button-dark:hover {
+.tweet-quote-button.dark:hover {
     box-shadow: var(--box-shadow-offset) var(--box-shadow-offset) var(--teal-color);
 }

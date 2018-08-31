@@ -23,24 +23,24 @@ class QuoteCard extends Component {
         });
     }
     render () {
-        const modifier = this.state.isHovering == true ? "dark" : "light";
+        const modifier = this.state.isHovering == true ? " dark" : "";
         return (
             <div className="quote-card"
                 onMouseOver={this.handleMouseOver}
                 onMouseLeave={this.handleMouseLeave}
                 >
                 <QuoteText
-                    className={"history-quote-" + modifier}
+                    className={"history-quote" + modifier}
                     quote={this.props.quote}
                 />
                 <QuoteAuthor
-                    className={"history-author-" + modifier}
+                    className={"history-author" + modifier}
                     author={this.props.author}
                 />
                 <div className="vertical-spacer"></div>
                 <div className="button-row-container">
                     <TweetQuote
-                        classes={"tweet-quote-button-" + modifier}
+                        classes={"tweet-quote-button" + modifier}
                         quote={this.props.quote}
                         author={this.props.author}
                     />

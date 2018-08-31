@@ -13,7 +13,7 @@ function QuoteBox(props) {
             <QuoteAuthor className="current-author" author={props.author}/>
             <div className="button-row-container">
                 <TweetQuote
-                    classes="tweet-quote-button-dark"
+                    classes="tweet-quote-button dark"
                     quote={props.quote}
                     author={props.author}
                 />
